@@ -22,8 +22,12 @@ jobs:
             target/
           key: ${{ runner.os }}-cargo-build-${{ hashFiles('**/Cargo.lock') }}
           restore-keys: ${{ runner.os }}-cargo-
+      - name: Install toolchain
+        run: |
+         rustup toolchain install 1.65
+         rustup default 1.65
       - name: Build project
-        run: cargo +1.65 build --release --all-features
+        run: cargo build --release --all-features
 
   test:
     strategy:
