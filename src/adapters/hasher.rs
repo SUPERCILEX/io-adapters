@@ -9,7 +9,7 @@ use crate::WriteExtension;
 ///
 /// ```rust
 /// # use std::{hash::{DefaultHasher, Hasher}, io, io::Read};
-/// # use io_adapters::WriteExtension;
+/// use io_adapters::WriteExtension;
 ///
 /// let mut hasher = DefaultHasher::new();
 ///

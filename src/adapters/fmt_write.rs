@@ -9,7 +9,7 @@ use crate::WriteExtension;
 ///
 /// ```rust
 /// # use std::{fmt, str};
-/// # use io_adapters::WriteExtension;
+/// use io_adapters::WriteExtension;
 ///
 /// let mut output1 = String::new();
 /// let mut output2 = [0u8; 13]; // Or io::stdout() for example
