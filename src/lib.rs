@@ -1,4 +1,6 @@
-pub mod adapters;
+pub use adapters::*;
+
+mod adapters;
 
 /// Provides extension methods on types that can be adapted to different write
 /// interfaces.
