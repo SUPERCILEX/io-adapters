@@ -1,5 +1,6 @@
 pub mod io_adapters
 pub struct io_adapters::FmtWriteAdapter<W>
+pub io_adapters::FmtWriteAdapter::error: core::option::Option<std::io::error::Error>
 impl<W: core::fmt::Debug> core::fmt::Debug for io_adapters::FmtWriteAdapter<W>
 pub fn io_adapters::FmtWriteAdapter<W>::fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result
 impl<W: std::io::Write> core::fmt::Write for io_adapters::FmtWriteAdapter<W>

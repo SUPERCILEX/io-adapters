@@ -11,7 +11,7 @@ conversions are available:
 Suppose you are writing a function which emits human-readable data in a zero-alloc way. The best
 interface looks something like this:
 
-```rust
+```rust,ignore
 fn foo<Out: fmt::Write>(mut output: Out, ...) {
     // Do stuff
     writeln!(output, "My computation: {result}").unwrap();
@@ -26,6 +26,6 @@ implementation, etc. The problem you'll run into is if you'd like to send the ou
 function to stdout: there is no built-in way to do so! That's where this crate comes in by providing
 an adapter, so you can write the following:
 
-```rust
+```rust,ignore
 foo(&mut io::stdout().write_adapter());
 ```
