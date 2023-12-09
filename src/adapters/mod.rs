@@ -1,5 +1,5 @@
-pub use fmt_write::Adapter as FmtWriteAdapter;
-pub use hasher::Adapter as HasherAdapter;
+pub use fmt_write::FmtToIo;
+pub use hasher::IoToHasher;
 
 mod fmt_write;
 mod hasher;

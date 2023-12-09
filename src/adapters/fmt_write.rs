@@ -25,12 +25,12 @@ use crate::WriteExtension;
 /// assert_eq!(str::from_utf8(&output2).unwrap(), "Hello, World!");
 /// ```
 #[derive(Debug)]
-pub struct Adapter<W> {
+pub struct FmtToIo<W> {
     inner: W,
     pub error: Option<io::Error>,
 }
 
-impl<W: io::Write> fmt::Write for Adapter<W> {
+impl<W: io::Write> fmt::Write for FmtToIo<W> {
     fn write_str(&mut self, s: &str) -> fmt::Result {
         match self.inner.write_all(s.as_bytes()) {
             Ok(()) => {
@@ -45,11 +45,11 @@ impl<W: io::Write> fmt::Write for Adapter<W> {
     }
 }
 
-impl<W: io::Write> WriteExtension<Adapter<W>> for W {
-    type Adapter<'a> = Adapter<&'a mut W> where W: 'a;
+impl<W: io::Write> WriteExtension<FmtToIo<W>> for W {
+    type Adapter<'a> = FmtToIo<&'a mut W> where W: 'a;
 
-    fn write_adapter(&mut self) -> Adapter<&mut W> {
-        Adapter {
+    fn write_adapter(&mut self) -> FmtToIo<&mut W> {
+        FmtToIo {
             inner: self,
             error: None,
         }

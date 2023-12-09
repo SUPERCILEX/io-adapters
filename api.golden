@@ -1,80 +1,80 @@
 pub mod io_adapters
-pub struct io_adapters::FmtWriteAdapter<W>
-pub io_adapters::FmtWriteAdapter::error: core::option::Option<std::io::error::Error>
-impl<W: core::fmt::Debug> core::fmt::Debug for io_adapters::FmtWriteAdapter<W>
-pub fn io_adapters::FmtWriteAdapter<W>::fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result
-impl<W: std::io::Write> core::fmt::Write for io_adapters::FmtWriteAdapter<W>
-pub fn io_adapters::FmtWriteAdapter<W>::write_str(&mut self, s: &str) -> core::fmt::Result
-impl<W> core::marker::Send for io_adapters::FmtWriteAdapter<W> where W: core::marker::Send
-impl<W> core::marker::Sync for io_adapters::FmtWriteAdapter<W> where W: core::marker::Sync
-impl<W> core::marker::Unpin for io_adapters::FmtWriteAdapter<W> where W: core::marker::Unpin
-impl<W> !core::panic::unwind_safe::RefUnwindSafe for io_adapters::FmtWriteAdapter<W>
-impl<W> !core::panic::unwind_safe::UnwindSafe for io_adapters::FmtWriteAdapter<W>
-impl<T, U> core::convert::Into<U> for io_adapters::FmtWriteAdapter<W> where U: core::convert::From<T>
-pub fn io_adapters::FmtWriteAdapter<W>::into(self) -> U
-impl<T, U> core::convert::TryFrom<U> for io_adapters::FmtWriteAdapter<W> where U: core::convert::Into<T>
-pub type io_adapters::FmtWriteAdapter<W>::Error = core::convert::Infallible
-pub fn io_adapters::FmtWriteAdapter<W>::try_from(value: U) -> core::result::Result<T, <T as core::convert::TryFrom<U>>::Error>
-impl<T, U> core::convert::TryInto<U> for io_adapters::FmtWriteAdapter<W> where U: core::convert::TryFrom<T>
-pub type io_adapters::FmtWriteAdapter<W>::Error = <U as core::convert::TryFrom<T>>::Error
-pub fn io_adapters::FmtWriteAdapter<W>::try_into(self) -> core::result::Result<U, <U as core::convert::TryFrom<T>>::Error>
-impl<T> core::any::Any for io_adapters::FmtWriteAdapter<W> where T: 'static + core::marker::Sized
-pub fn io_adapters::FmtWriteAdapter<W>::type_id(&self) -> core::any::TypeId
-impl<T> core::borrow::Borrow<T> for io_adapters::FmtWriteAdapter<W> where T: core::marker::Sized
-pub fn io_adapters::FmtWriteAdapter<W>::borrow(&self) -> &T
-impl<T> core::borrow::BorrowMut<T> for io_adapters::FmtWriteAdapter<W> where T: core::marker::Sized
-pub fn io_adapters::FmtWriteAdapter<W>::borrow_mut(&mut self) -> &mut T
-impl<T> core::convert::From<T> for io_adapters::FmtWriteAdapter<W>
-pub fn io_adapters::FmtWriteAdapter<W>::from(t: T) -> T
-impl<W> io_adapters::WriteExtension<io_adapters::FmtWriteAdapter<W>> for io_adapters::HasherAdapter<H> where W: std::io::Write
-pub type io_adapters::HasherAdapter<H>::Adapter<'a> where W: 'a = io_adapters::FmtWriteAdapter<&'a mut W>
-pub fn io_adapters::HasherAdapter<H>::write_adapter(&mut self) -> io_adapters::FmtWriteAdapter<&mut W>
-pub struct io_adapters::HasherAdapter<H>(_)
-impl<H: core::clone::Clone> core::clone::Clone for io_adapters::HasherAdapter<H>
-pub fn io_adapters::HasherAdapter<H>::clone(&self) -> io_adapters::HasherAdapter<H>
-impl<H: core::fmt::Debug> core::fmt::Debug for io_adapters::HasherAdapter<H>
-pub fn io_adapters::HasherAdapter<H>::fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result
-impl<H: core::hash::Hasher> io_adapters::WriteExtension<io_adapters::HasherAdapter<H>> for H
-pub type H::Adapter<'a> where H: 'a = io_adapters::HasherAdapter<&'a mut H>
-pub fn H::write_adapter(&mut self) -> io_adapters::HasherAdapter<&mut H>
-impl<H: core::hash::Hasher> std::io::Write for io_adapters::HasherAdapter<&mut H>
-pub fn io_adapters::HasherAdapter<&mut H>::flush(&mut self) -> std::io::error::Result<()>
-pub fn io_adapters::HasherAdapter<&mut H>::write(&mut self, buf: &[u8]) -> std::io::error::Result<usize>
-impl<H: core::marker::Copy> core::marker::Copy for io_adapters::HasherAdapter<H>
-impl<H> core::marker::Send for io_adapters::HasherAdapter<H> where H: core::marker::Send
-impl<H> core::marker::Sync for io_adapters::HasherAdapter<H> where H: core::marker::Sync
-impl<H> core::marker::Unpin for io_adapters::HasherAdapter<H> where H: core::marker::Unpin
-impl<H> core::panic::unwind_safe::RefUnwindSafe for io_adapters::HasherAdapter<H> where H: core::panic::unwind_safe::RefUnwindSafe
-impl<H> core::panic::unwind_safe::UnwindSafe for io_adapters::HasherAdapter<H> where H: core::panic::unwind_safe::UnwindSafe
-impl<T, U> core::convert::Into<U> for io_adapters::HasherAdapter<H> where U: core::convert::From<T>
-pub fn io_adapters::HasherAdapter<H>::into(self) -> U
-impl<T, U> core::convert::TryFrom<U> for io_adapters::HasherAdapter<H> where U: core::convert::Into<T>
-pub type io_adapters::HasherAdapter<H>::Error = core::convert::Infallible
-pub fn io_adapters::HasherAdapter<H>::try_from(value: U) -> core::result::Result<T, <T as core::convert::TryFrom<U>>::Error>
-impl<T, U> core::convert::TryInto<U> for io_adapters::HasherAdapter<H> where U: core::convert::TryFrom<T>
-pub type io_adapters::HasherAdapter<H>::Error = <U as core::convert::TryFrom<T>>::Error
-pub fn io_adapters::HasherAdapter<H>::try_into(self) -> core::result::Result<U, <U as core::convert::TryFrom<T>>::Error>
-impl<T> alloc::borrow::ToOwned for io_adapters::HasherAdapter<H> where T: core::clone::Clone
-pub type io_adapters::HasherAdapter<H>::Owned = T
-pub fn io_adapters::HasherAdapter<H>::clone_into(&self, target: &mut T)
-pub fn io_adapters::HasherAdapter<H>::to_owned(&self) -> T
-impl<T> core::any::Any for io_adapters::HasherAdapter<H> where T: 'static + core::marker::Sized
-pub fn io_adapters::HasherAdapter<H>::type_id(&self) -> core::any::TypeId
-impl<T> core::borrow::Borrow<T> for io_adapters::HasherAdapter<H> where T: core::marker::Sized
-pub fn io_adapters::HasherAdapter<H>::borrow(&self) -> &T
-impl<T> core::borrow::BorrowMut<T> for io_adapters::HasherAdapter<H> where T: core::marker::Sized
-pub fn io_adapters::HasherAdapter<H>::borrow_mut(&mut self) -> &mut T
-impl<T> core::convert::From<T> for io_adapters::HasherAdapter<H>
-pub fn io_adapters::HasherAdapter<H>::from(t: T) -> T
-impl<W> io_adapters::WriteExtension<io_adapters::FmtWriteAdapter<W>> for io_adapters::HasherAdapter<H> where W: std::io::Write
-pub type io_adapters::HasherAdapter<H>::Adapter<'a> where W: 'a = io_adapters::FmtWriteAdapter<&'a mut W>
-pub fn io_adapters::HasherAdapter<H>::write_adapter(&mut self) -> io_adapters::FmtWriteAdapter<&mut W>
+pub struct io_adapters::FmtToIo<W>
+pub io_adapters::FmtToIo::error: core::option::Option<std::io::error::Error>
+impl<W: core::fmt::Debug> core::fmt::Debug for io_adapters::FmtToIo<W>
+pub fn io_adapters::FmtToIo<W>::fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result
+impl<W: std::io::Write> core::fmt::Write for io_adapters::FmtToIo<W>
+pub fn io_adapters::FmtToIo<W>::write_str(&mut self, s: &str) -> core::fmt::Result
+impl<W> core::marker::Send for io_adapters::FmtToIo<W> where W: core::marker::Send
+impl<W> core::marker::Sync for io_adapters::FmtToIo<W> where W: core::marker::Sync
+impl<W> core::marker::Unpin for io_adapters::FmtToIo<W> where W: core::marker::Unpin
+impl<W> !core::panic::unwind_safe::RefUnwindSafe for io_adapters::FmtToIo<W>
+impl<W> !core::panic::unwind_safe::UnwindSafe for io_adapters::FmtToIo<W>
+impl<T, U> core::convert::Into<U> for io_adapters::FmtToIo<W> where U: core::convert::From<T>
+pub fn io_adapters::FmtToIo<W>::into(self) -> U
+impl<T, U> core::convert::TryFrom<U> for io_adapters::FmtToIo<W> where U: core::convert::Into<T>
+pub type io_adapters::FmtToIo<W>::Error = core::convert::Infallible
+pub fn io_adapters::FmtToIo<W>::try_from(value: U) -> core::result::Result<T, <T as core::convert::TryFrom<U>>::Error>
+impl<T, U> core::convert::TryInto<U> for io_adapters::FmtToIo<W> where U: core::convert::TryFrom<T>
+pub type io_adapters::FmtToIo<W>::Error = <U as core::convert::TryFrom<T>>::Error
+pub fn io_adapters::FmtToIo<W>::try_into(self) -> core::result::Result<U, <U as core::convert::TryFrom<T>>::Error>
+impl<T> core::any::Any for io_adapters::FmtToIo<W> where T: 'static + core::marker::Sized
+pub fn io_adapters::FmtToIo<W>::type_id(&self) -> core::any::TypeId
+impl<T> core::borrow::Borrow<T> for io_adapters::FmtToIo<W> where T: core::marker::Sized
+pub fn io_adapters::FmtToIo<W>::borrow(&self) -> &T
+impl<T> core::borrow::BorrowMut<T> for io_adapters::FmtToIo<W> where T: core::marker::Sized
+pub fn io_adapters::FmtToIo<W>::borrow_mut(&mut self) -> &mut T
+impl<T> core::convert::From<T> for io_adapters::FmtToIo<W>
+pub fn io_adapters::FmtToIo<W>::from(t: T) -> T
+impl<W> io_adapters::WriteExtension<io_adapters::FmtToIo<W>> for io_adapters::IoToHasher<H> where W: std::io::Write
+pub type io_adapters::IoToHasher<H>::Adapter<'a> where W: 'a = io_adapters::FmtToIo<&'a mut W>
+pub fn io_adapters::IoToHasher<H>::write_adapter(&mut self) -> io_adapters::FmtToIo<&mut W>
+pub struct io_adapters::IoToHasher<H>(_)
+impl<H: core::clone::Clone> core::clone::Clone for io_adapters::IoToHasher<H>
+pub fn io_adapters::IoToHasher<H>::clone(&self) -> io_adapters::IoToHasher<H>
+impl<H: core::fmt::Debug> core::fmt::Debug for io_adapters::IoToHasher<H>
+pub fn io_adapters::IoToHasher<H>::fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result
+impl<H: core::hash::Hasher> io_adapters::WriteExtension<io_adapters::IoToHasher<H>> for H
+pub type H::Adapter<'a> where H: 'a = io_adapters::IoToHasher<&'a mut H>
+pub fn H::write_adapter(&mut self) -> io_adapters::IoToHasher<&mut H>
+impl<H: core::hash::Hasher> std::io::Write for io_adapters::IoToHasher<&mut H>
+pub fn io_adapters::IoToHasher<&mut H>::flush(&mut self) -> std::io::error::Result<()>
+pub fn io_adapters::IoToHasher<&mut H>::write(&mut self, buf: &[u8]) -> std::io::error::Result<usize>
+impl<H: core::marker::Copy> core::marker::Copy for io_adapters::IoToHasher<H>
+impl<H> core::marker::Send for io_adapters::IoToHasher<H> where H: core::marker::Send
+impl<H> core::marker::Sync for io_adapters::IoToHasher<H> where H: core::marker::Sync
+impl<H> core::marker::Unpin for io_adapters::IoToHasher<H> where H: core::marker::Unpin
+impl<H> core::panic::unwind_safe::RefUnwindSafe for io_adapters::IoToHasher<H> where H: core::panic::unwind_safe::RefUnwindSafe
+impl<H> core::panic::unwind_safe::UnwindSafe for io_adapters::IoToHasher<H> where H: core::panic::unwind_safe::UnwindSafe
+impl<T, U> core::convert::Into<U> for io_adapters::IoToHasher<H> where U: core::convert::From<T>
+pub fn io_adapters::IoToHasher<H>::into(self) -> U
+impl<T, U> core::convert::TryFrom<U> for io_adapters::IoToHasher<H> where U: core::convert::Into<T>
+pub type io_adapters::IoToHasher<H>::Error = core::convert::Infallible
+pub fn io_adapters::IoToHasher<H>::try_from(value: U) -> core::result::Result<T, <T as core::convert::TryFrom<U>>::Error>
+impl<T, U> core::convert::TryInto<U> for io_adapters::IoToHasher<H> where U: core::convert::TryFrom<T>
+pub type io_adapters::IoToHasher<H>::Error = <U as core::convert::TryFrom<T>>::Error
+pub fn io_adapters::IoToHasher<H>::try_into(self) -> core::result::Result<U, <U as core::convert::TryFrom<T>>::Error>
+impl<T> alloc::borrow::ToOwned for io_adapters::IoToHasher<H> where T: core::clone::Clone
+pub type io_adapters::IoToHasher<H>::Owned = T
+pub fn io_adapters::IoToHasher<H>::clone_into(&self, target: &mut T)
+pub fn io_adapters::IoToHasher<H>::to_owned(&self) -> T
+impl<T> core::any::Any for io_adapters::IoToHasher<H> where T: 'static + core::marker::Sized
+pub fn io_adapters::IoToHasher<H>::type_id(&self) -> core::any::TypeId
+impl<T> core::borrow::Borrow<T> for io_adapters::IoToHasher<H> where T: core::marker::Sized
+pub fn io_adapters::IoToHasher<H>::borrow(&self) -> &T
+impl<T> core::borrow::BorrowMut<T> for io_adapters::IoToHasher<H> where T: core::marker::Sized
+pub fn io_adapters::IoToHasher<H>::borrow_mut(&mut self) -> &mut T
+impl<T> core::convert::From<T> for io_adapters::IoToHasher<H>
+pub fn io_adapters::IoToHasher<H>::from(t: T) -> T
+impl<W> io_adapters::WriteExtension<io_adapters::FmtToIo<W>> for io_adapters::IoToHasher<H> where W: std::io::Write
+pub type io_adapters::IoToHasher<H>::Adapter<'a> where W: 'a = io_adapters::FmtToIo<&'a mut W>
+pub fn io_adapters::IoToHasher<H>::write_adapter(&mut self) -> io_adapters::FmtToIo<&mut W>
 pub trait io_adapters::WriteExtension<T>
 pub type io_adapters::WriteExtension::Adapter<'a> where Self: 'a
 pub fn io_adapters::WriteExtension::write_adapter(&mut self) -> Self::Adapter
-impl<H: core::hash::Hasher> io_adapters::WriteExtension<io_adapters::HasherAdapter<H>> for H
-pub type H::Adapter<'a> where H: 'a = io_adapters::HasherAdapter<&'a mut H>
-pub fn H::write_adapter(&mut self) -> io_adapters::HasherAdapter<&mut H>
-impl<W: std::io::Write> io_adapters::WriteExtension<io_adapters::FmtWriteAdapter<W>> for W
-pub type W::Adapter<'a> where W: 'a = io_adapters::FmtWriteAdapter<&'a mut W>
-pub fn W::write_adapter(&mut self) -> io_adapters::FmtWriteAdapter<&mut W>
+impl<H: core::hash::Hasher> io_adapters::WriteExtension<io_adapters::IoToHasher<H>> for H
+pub type H::Adapter<'a> where H: 'a = io_adapters::IoToHasher<&'a mut H>
+pub fn H::write_adapter(&mut self) -> io_adapters::IoToHasher<&mut H>
+impl<W: std::io::Write> io_adapters::WriteExtension<io_adapters::FmtToIo<W>> for W
+pub type W::Adapter<'a> where W: 'a = io_adapters::FmtToIo<&'a mut W>
+pub fn W::write_adapter(&mut self) -> io_adapters::FmtToIo<&mut W>
