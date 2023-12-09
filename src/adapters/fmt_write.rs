@@ -27,7 +27,7 @@ use crate::WriteExtension;
 #[derive(Debug)]
 pub struct Adapter<W> {
     inner: W,
-    error: Option<io::Error>,
+    pub error: Option<io::Error>,
 }
 
 impl<W: io::Write> fmt::Write for Adapter<W> {
