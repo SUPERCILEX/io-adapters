@@ -5,6 +5,7 @@ impl<W: core::fmt::Debug> core::fmt::Debug for io_adapters::FmtToIo<W>
 pub fn io_adapters::FmtToIo<W>::fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result
 impl<W: std::io::Write> core::fmt::Write for io_adapters::FmtToIo<W>
 pub fn io_adapters::FmtToIo<W>::write_str(&mut self, s: &str) -> core::fmt::Result
+impl<W> core::marker::Freeze for io_adapters::FmtToIo<W> where W: core::marker::Freeze
 impl<W> core::marker::Send for io_adapters::FmtToIo<W> where W: core::marker::Send
 impl<W> core::marker::Sync for io_adapters::FmtToIo<W> where W: core::marker::Sync
 impl<W> core::marker::Unpin for io_adapters::FmtToIo<W> where W: core::marker::Unpin
@@ -41,6 +42,7 @@ impl<H: core::hash::Hasher> std::io::Write for io_adapters::IoToHasher<&mut H>
 pub fn io_adapters::IoToHasher<&mut H>::flush(&mut self) -> std::io::error::Result<()>
 pub fn io_adapters::IoToHasher<&mut H>::write(&mut self, buf: &[u8]) -> std::io::error::Result<usize>
 impl<H: core::marker::Copy> core::marker::Copy for io_adapters::IoToHasher<H>
+impl<H> core::marker::Freeze for io_adapters::IoToHasher<H> where H: core::marker::Freeze
 impl<H> core::marker::Send for io_adapters::IoToHasher<H> where H: core::marker::Send
 impl<H> core::marker::Sync for io_adapters::IoToHasher<H> where H: core::marker::Sync
 impl<H> core::marker::Unpin for io_adapters::IoToHasher<H> where H: core::marker::Unpin
