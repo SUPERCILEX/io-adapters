@@ -30,6 +30,12 @@ pub struct FmtToIo<W> {
     pub error: Option<io::Error>,
 }
 
+impl<W: io::Write> FmtToIo<W> {
+    pub fn new(inner: W) -> Self {
+        Self { inner, error: None }
+    }
+}
+
 impl<W: io::Write> fmt::Write for FmtToIo<W> {
     fn write_str(&mut self, s: &str) -> fmt::Result {
         match self.inner.write_all(s.as_bytes()) {

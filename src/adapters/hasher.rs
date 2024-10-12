@@ -20,6 +20,12 @@ use crate::WriteExtension;
 #[derive(Copy, Clone, Debug)]
 pub struct IoToHasher<H>(H);
 
+impl<H: Hasher> IoToHasher<H> {
+    pub fn new(inner: H) -> Self {
+        Self(inner)
+    }
+}
+
 impl<H: Hasher> io::Write for IoToHasher<&mut H> {
     fn write(&mut self, buf: &[u8]) -> io::Result<usize> {
         self.0.write(buf);
