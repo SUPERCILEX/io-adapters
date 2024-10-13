@@ -17,7 +17,7 @@ use crate::WriteExtension;
 /// my_common_writer(&mut output1).unwrap();
 /// my_common_writer(&mut output2.as_mut_slice().write_adapter()).unwrap();
 ///
-/// fn my_common_writer(output: &mut impl fmt::Write) -> fmt::Result {
+/// fn my_common_writer(mut output: impl fmt::Write) -> fmt::Result {
 ///     write!(output, "Hello, World!")
 /// }
 ///
@@ -46,9 +46,9 @@ impl<W: io::Write> fmt::Write for FmtToIo<W> {
 }
 
 impl<W: io::Write> WriteExtension<FmtToIo<W>> for W {
-    type Adapter<'a> = FmtToIo<&'a mut W> where W: 'a;
+    type Adapter = FmtToIo<W>;
 
-    fn write_adapter(&mut self) -> FmtToIo<&mut W> {
+    fn write_adapter(self) -> FmtToIo<W> {
         FmtToIo {
             inner: self,
             error: None,

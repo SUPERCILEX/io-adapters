@@ -13,14 +13,14 @@ use crate::WriteExtension;
 ///
 /// let mut hasher = DefaultHasher::new();
 ///
-/// io::copy(&mut io::repeat(42).take(10), &mut hasher.write_adapter()).unwrap();
+/// io::copy(&mut io::repeat(42).take(10), &mut (&mut hasher).write_adapter()).unwrap();
 ///
 /// assert_eq!(hasher.finish(), 2882615036743451676);
 /// ```
 #[derive(Copy, Clone, Debug)]
 pub struct IoToHasher<H>(H);
 
-impl<H: Hasher> io::Write for IoToHasher<&mut H> {
+impl<H: Hasher> io::Write for IoToHasher<H> {
     fn write(&mut self, buf: &[u8]) -> io::Result<usize> {
         self.0.write(buf);
         Ok(buf.len())
@@ -32,9 +32,9 @@ impl<H: Hasher> io::Write for IoToHasher<&mut H> {
 }
 
 impl<H: Hasher> WriteExtension<IoToHasher<H>> for H {
-    type Adapter<'a> = IoToHasher<&'a mut H> where H: 'a;
+    type Adapter = IoToHasher<H>;
 
-    fn write_adapter(&mut self) -> IoToHasher<&mut H> {
+    fn write_adapter(self) -> IoToHasher<H> {
         IoToHasher(self)
     }
 }
