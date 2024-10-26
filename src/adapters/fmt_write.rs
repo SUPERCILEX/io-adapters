@@ -24,6 +24,28 @@ use crate::WriteExtension;
 /// assert_eq!(&output1, "Hello, World!");
 /// assert_eq!(str::from_utf8(&output2).unwrap(), "Hello, World!");
 /// ```
+///
+/// ## Error handling
+///
+/// Error handling is unpleasant with this adapter due to the [`fmt::Write`]
+/// interface returning a stateless [`fmt::Error`] rather than an [`io::Error`].
+/// Here is the suggested usage when unwrap doesn't cut it:
+///
+/// ```
+/// # use std::{fmt, io, str};
+/// # use io_adapters::WriteExtension;
+///
+/// let mut adapter = io::stdout().write_adapter();
+/// match (conv(&mut adapter), adapter.error) {
+///   (Ok(()), None) => {}
+///   (Ok(()), Some(_)) => unreachable!(),
+///   (Err(fmt::Error), None) => { /* Handle format error. */ }
+///   (Err(fmt::Error), Some(e)) => { /* Handle I/O error. */ }
+/// }
+///
+/// fn conv(output: impl fmt::Write) -> fmt::Result
+/// # { Ok(()) }
+/// ```
 #[derive(Debug)]
 pub struct FmtToIo<W> {
     inner: W,
