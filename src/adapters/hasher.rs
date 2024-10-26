@@ -13,7 +13,11 @@ use crate::WriteExtension;
 ///
 /// let mut hasher = DefaultHasher::new();
 ///
-/// io::copy(&mut io::repeat(42).take(10), &mut (&mut hasher).write_adapter()).unwrap();
+/// io::copy(
+///     &mut io::repeat(42).take(10),
+///     &mut (&mut hasher).write_adapter(),
+/// )
+/// .unwrap();
 ///
 /// assert_eq!(hasher.finish(), 2882615036743451676);
 /// ```
