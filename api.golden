@@ -19,11 +19,11 @@ pub fn io_adapters::FmtToIo<W>::try_from(value: U) -> core::result::Result<T, <T
 impl<T, U> core::convert::TryInto<U> for io_adapters::FmtToIo<W> where U: core::convert::TryFrom<T>
 pub type io_adapters::FmtToIo<W>::Error = <U as core::convert::TryFrom<T>>::Error
 pub fn io_adapters::FmtToIo<W>::try_into(self) -> core::result::Result<U, <U as core::convert::TryFrom<T>>::Error>
-impl<T> core::any::Any for io_adapters::FmtToIo<W> where T: 'static + core::marker::Sized
+impl<T> core::any::Any for io_adapters::FmtToIo<W> where T: 'static + ?core::marker::Sized
 pub fn io_adapters::FmtToIo<W>::type_id(&self) -> core::any::TypeId
-impl<T> core::borrow::Borrow<T> for io_adapters::FmtToIo<W> where T: core::marker::Sized
+impl<T> core::borrow::Borrow<T> for io_adapters::FmtToIo<W> where T: ?core::marker::Sized
 pub fn io_adapters::FmtToIo<W>::borrow(&self) -> &T
-impl<T> core::borrow::BorrowMut<T> for io_adapters::FmtToIo<W> where T: core::marker::Sized
+impl<T> core::borrow::BorrowMut<T> for io_adapters::FmtToIo<W> where T: ?core::marker::Sized
 pub fn io_adapters::FmtToIo<W>::borrow_mut(&mut self) -> &mut T
 impl<T> core::convert::From<T> for io_adapters::FmtToIo<W>
 pub fn io_adapters::FmtToIo<W>::from(t: T) -> T
@@ -60,14 +60,14 @@ impl<T> alloc::borrow::ToOwned for io_adapters::IoToHasher<H> where T: core::clo
 pub type io_adapters::IoToHasher<H>::Owned = T
 pub fn io_adapters::IoToHasher<H>::clone_into(&self, target: &mut T)
 pub fn io_adapters::IoToHasher<H>::to_owned(&self) -> T
-impl<T> core::any::Any for io_adapters::IoToHasher<H> where T: 'static + core::marker::Sized
+impl<T> core::any::Any for io_adapters::IoToHasher<H> where T: 'static + ?core::marker::Sized
 pub fn io_adapters::IoToHasher<H>::type_id(&self) -> core::any::TypeId
-impl<T> core::borrow::Borrow<T> for io_adapters::IoToHasher<H> where T: core::marker::Sized
+impl<T> core::borrow::Borrow<T> for io_adapters::IoToHasher<H> where T: ?core::marker::Sized
 pub fn io_adapters::IoToHasher<H>::borrow(&self) -> &T
-impl<T> core::borrow::BorrowMut<T> for io_adapters::IoToHasher<H> where T: core::marker::Sized
+impl<T> core::borrow::BorrowMut<T> for io_adapters::IoToHasher<H> where T: ?core::marker::Sized
 pub fn io_adapters::IoToHasher<H>::borrow_mut(&mut self) -> &mut T
 impl<T> core::clone::CloneToUninit for io_adapters::IoToHasher<H> where T: core::clone::Clone
-pub unsafe fn io_adapters::IoToHasher<H>::clone_to_uninit(&self, dst: *mut T)
+pub unsafe fn io_adapters::IoToHasher<H>::clone_to_uninit(&self, dst: *mut u8)
 impl<T> core::convert::From<T> for io_adapters::IoToHasher<H>
 pub fn io_adapters::IoToHasher<H>::from(t: T) -> T
 impl<W> io_adapters::WriteExtension<io_adapters::FmtToIo<W>> for io_adapters::IoToHasher<H> where W: std::io::Write
